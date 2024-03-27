@@ -6,10 +6,10 @@
 
 import React from 'react';
 
-function useKeypress(keyCode, callback) {
+function useKeydown(key, callback) {
   React.useEffect(() => {
     function handleKeyDown(event) {
-      if (event.code === keyCode) {
+      if (event.code === key) {
         callback();
       }
     }
@@ -19,7 +19,7 @@ function useKeypress(keyCode, callback) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [callback]);
+  }, [key, callback]);
 }
 
-export default useKeypress;
+export default useKeydown;
