@@ -86,19 +86,19 @@
 
 // When you do find yourself in this situation, though, this hook can be really handy. And even though polling isn't often the best solution to a problem, it's also not a bad solution. It feels a bit wasteful / inelegant, but honestly it provides a near-identical user experience, and at the end of the day, that's all that really matters.
 
-import React from "react";
-import useInterval from "./use-interval.hook";
+import React from 'react';
+import useInterval from './use-interval.hook';
 function useRetryUntilResolved(callback, interval = 100) {
-    const [hasResolved, setHasResolved] = React.useState(false);
-    useInterval(
-        () => {
-            const result = callback();
-            if (result) {
-                setHasResolved(true);
-            }
-        },
-        hasResolved ? null : interval
-    );
-    return hasResolved;
+  const [hasResolved, setHasResolved] = React.useState(false);
+  useInterval(
+    () => {
+      const result = callback();
+      if (result) {
+        setHasResolved(true);
+      }
+    },
+    hasResolved ? null : interval
+  );
+  return hasResolved;
 }
 export default useRetryUntilResolved;

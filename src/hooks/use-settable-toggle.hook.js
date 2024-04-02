@@ -1,16 +1,11 @@
 import React from 'react';
 
 function useSettableToggle(initialValue = false) {
-  if (
-    typeof initialValue !== 'boolean' &&
-    typeof initialValue !== 'function'
-  ) {
+  if (typeof initialValue !== 'boolean' && typeof initialValue !== 'function') {
     console.warn('Invalid type for useSettableToggle');
   }
 
-  const [value, setValue] = React.useState(
-    initialValue
-  );
+  const [value, setValue] = React.useState(initialValue);
 
   function toggleValue(newValue) {
     if (typeof newValue === 'boolean') {

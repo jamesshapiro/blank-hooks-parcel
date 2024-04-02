@@ -5,11 +5,7 @@
 */
 import React from 'react';
 import { debounce, throttle } from '@utils';
-const useBoundingBox = (
-  ref,
-  scrollDebounce = 60,
-  resizeThrottle = 60
-) => {
+const useBoundingBox = (ref, scrollDebounce = 60, resizeThrottle = 60) => {
   const [box, setBox] = React.useState(null);
   React.useEffect(() => {
     // Don't think this is possible?

@@ -2,7 +2,7 @@
   Spawns and terminates a Web Worker.
 */
 import React from 'react';
-const useWorker = WorkerConstructor => {
+const useWorker = (WorkerConstructor) => {
   // In SSR mode, just return a dummy object
   if (typeof window === 'undefined') {
     return {};

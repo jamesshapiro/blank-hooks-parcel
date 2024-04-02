@@ -25,17 +25,13 @@
 
 // I share more about this challenge in my blog post, The Perils of Rehydration. (https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
 
-
-
 function useStickyState(defaultValue, key) {
-    const [value, setValue] = React.useState(() => {
-        const stickyValue = window.localStorage.getItem(key);
-        return stickyValue !== null
-            ? JSON.parse(stickyValue)
-            : defaultValue;
-    });
-    React.useEffect(() => {
-        window.localStorage.setItem(key, JSON.stringify(value));
-    }, [key, value]);
-    return [value, setValue];
+  const [value, setValue] = React.useState(() => {
+    const stickyValue = window.localStorage.getItem(key);
+    return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
+  });
+  React.useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
 }

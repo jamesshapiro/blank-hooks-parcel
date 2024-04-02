@@ -7,16 +7,14 @@
 
 // For maximum performance, you can use a library like React Spring or Framer Motion, which will allow you to update values without triggering React renders. In my experience, though, as long as you're using this hook on smaller components that don't have a big DOM impact, you should be just fine.
 
-
-
 import React from 'react';
 const useMousePosition = () => {
-  const [
-    mousePosition,
-    setMousePosition
-  ] = React.useState({ x: null, y: null });
+  const [mousePosition, setMousePosition] = React.useState({
+    x: null,
+    y: null,
+  });
   React.useEffect(() => {
-    const updateMousePosition = ev => {
+    const updateMousePosition = (ev) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
     window.addEventListener('mousemove', updateMousePosition);
