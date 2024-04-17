@@ -21,3 +21,7 @@
     visibility: hidden;
     display: inline;
 }
+
+.nothingFake1234 {
+    color: hsl(217, 100%, 61%);
+}
