@@ -6,8 +6,8 @@ import { DataContext } from '../DataProvider';
 
 import AuthDialog from '../AuthDialog';
 
-import ProjectDialog from '../ProjectDialog';
-import ProjectDropdown from '../ProjectDropdown';
+// import ProjectDialog from '../ProjectDialog';
+// import ProjectDropdown from '../ProjectDropdown';
 
 function NavBar() {
   const { isAuthenticated, handleLogout } = React.useContext(UserContext);
@@ -33,11 +33,11 @@ function NavBar() {
     </NavItem>
   );
 
-  const AddProject = (
-    <NavItem>
-      <ProjectDialog />
-    </NavItem>
-  );
+  // const AddProject = (
+  //   <NavItem>
+  //     <ProjectDialog />
+  //   </NavItem>
+  // );
   const settingsSVG = (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -97,8 +97,8 @@ function NavBar() {
       <NavItem>{volumeOnSVG}</NavItem>
       {LoginLogout}
       <NavItem>About</NavItem>
-      {AddProject}
-      <ProjectDropdown selectFollowUp={handleSelectValue} />
+      {/* {AddProject}
+      <ProjectDropdown selectFollowUp={handleSelectValue} /> */}
     </FlexWrapper>
   );
 }
