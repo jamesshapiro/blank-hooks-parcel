@@ -8,8 +8,6 @@ import * as Tabs from '@radix-ui/react-tabs';
 
 const AuthDialog = () => {
   const [email, setEmail] = React.useState('');
-  const [firstname, setFirstname] = React.useState('');
-  const [lastname, setLastname] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
   const { handleLogin, handleSignUp, handleConfirmSignUp, setIsAuthModalOpen } =
@@ -49,11 +47,7 @@ const AuthDialog = () => {
       window.alert('Email not valid!');
       return;
     }
-    if (firstname === '' || lastname === '') {
-      window.alert('Must provide a first and last name!');
-      return;
-    }
-    handleSignUp(email, password, firstname, lastname);
+    handleSignUp(email, password);
     setAwaitingConfirmation(true);
   }
 
@@ -81,30 +75,6 @@ const AuthDialog = () => {
           className='Input'
           id='email'
           type='email'
-        />
-      </fieldset>
-      <fieldset className='Fieldset'>
-        <label className='Label' htmlFor='firstname'>
-          First Name
-        </label>
-        <input
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-          className='Input'
-          id='firstname'
-          type='text'
-        />
-      </fieldset>
-      <fieldset className='Fieldset'>
-        <label className='Label' htmlFor='lastname'>
-          Last Name
-        </label>
-        <input
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-          className='Input'
-          id='lastname'
-          type='text'
         />
       </fieldset>
       <fieldset className='Fieldset'>

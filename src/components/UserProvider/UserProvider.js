@@ -131,7 +131,7 @@ function UserProvider({ children }) {
     }
   };
 
-  const handleSignUp = async (email, password, firstname, lastname) => {
+  const handleSignUp = async (email, password) => {
     try {
       const input = {
         username: email,
@@ -139,8 +139,6 @@ function UserProvider({ children }) {
         options: {
           userAttributes: {
             email,
-            given_name: firstname,
-            family_name: lastname,
           },
         },
       };
