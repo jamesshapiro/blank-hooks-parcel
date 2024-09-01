@@ -1,12 +1,9 @@
 import React from 'react';
-
-// Note: replace "Data" with the name of the thing being provided.
-// For usage, see the "DataContextUser" component.
+import { UserContext } from '../UserProvider';
 
 export const DataContext = React.createContext();
 
 const ENDPOINT = process.env.REACT_APP_API_URL;
-const API_KEY = process.env.REACT_APP_API_KEY;
 
 function DataProvider({ children }) {
   const randomItem = 'random item';
@@ -14,40 +11,38 @@ function DataProvider({ children }) {
   const [apiWasRequested, setApiWasRequested] = React.useState(false);
   const [requestWasHandled, setRequestWasHandled] = React.useState(false);
 
+  const { token } = React.useContext(UserContext);
+
   React.useEffect(() => {
     async function fetchData() {
-      const payload = {
-        'key': 'value'
-      };
+      const URL = ENDPOINT + 'video';
 
-      const request = new Request(ENDPOINT, {
-        method: 'PUT',
+      const request = new Request(URL, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': API_KEY 
+          Authorization: token,
         },
-        body: JSON.stringify(payload),
         timeout: 100000,
       });
-      console.log(`API Was Requested!`)
-      console.log(`${ENDPOINT} ${API_KEY}`)
-      
+      console.log(`API Was Requested!`);
+      console.log(`${ENDPOINT}`);
+
       const response = await fetch(request);
       const json = await response.json();
-      console.log(json)
+      console.log(json);
       return json;
     }
-    console.log('data fetch requested')
-    console.log(`apiWasRequested: ${apiWasRequested} && requestWasHandled: ${requestWasHandled}`)
+    console.log('data fetch requested');
+    console.log(
+      `apiWasRequested: ${apiWasRequested} && requestWasHandled: ${requestWasHandled}`
+    );
     if (apiWasRequested && !requestWasHandled) {
       fetchData();
-      setApiWasRequested(false)
-      setRequestWasHandled(true)
+      setApiWasRequested(false);
+      setRequestWasHandled(true);
     }
   }, [apiWasRequested, requestWasHandled]);
-
-
-  
 
   function createItem(content, variant) {
     const nextItems = [
@@ -77,7 +72,7 @@ function DataProvider({ children }) {
         clearItem,
         randomItem,
         setApiWasRequested,
-        setRequestWasHandled
+        setRequestWasHandled,
       }}
     >
       {children}

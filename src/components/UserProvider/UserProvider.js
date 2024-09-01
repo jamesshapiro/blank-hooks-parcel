@@ -54,7 +54,7 @@ function UserProvider({ children }) {
         const idToken = tokens.idToken.toString();
         setToken(idToken);
       } catch (err) {
-        // console.log(err);
+        //
         setIsAuthenticated(false);
       }
     };
@@ -114,7 +114,7 @@ function UserProvider({ children }) {
       setName('');
       setAuthUpdated((oldValue) => oldValue + 1);
     } catch (err) {
-      // console.log(err);
+      //
     }
   };
 
@@ -127,7 +127,7 @@ function UserProvider({ children }) {
       const response = await signIn(input);
       setAuthUpdated((oldValue) => oldValue + 1);
     } catch (err) {
-      // console.log(err);
+      //
     }
   };
 
@@ -144,7 +144,7 @@ function UserProvider({ children }) {
       };
       const signUpResponse = await signUp(input);
     } catch (err) {
-      // console.log(err);
+      //
     }
   };
 
@@ -156,7 +156,7 @@ function UserProvider({ children }) {
       });
       setAuthUpdated((oldValue) => oldValue + 1);
     } catch (error) {
-      // console.log('error confirming sign up', error);
+      //
     }
   };
 
