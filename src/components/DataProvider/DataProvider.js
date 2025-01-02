@@ -11,7 +11,7 @@ function DataProvider({ children }) {
   const [apiWasRequested, setApiWasRequested] = React.useState(false);
   const [requestWasHandled, setRequestWasHandled] = React.useState(false);
 
-  const { token } = React.useContext(UserContext);
+  // const { token } = React.useContext(UserContext);
 
   React.useEffect(() => {
     async function fetchData() {

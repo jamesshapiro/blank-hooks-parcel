@@ -10,7 +10,7 @@ import AuthDialog from '../AuthDialog';
 // import ProjectDropdown from '../ProjectDropdown';
 
 function NavBar() {
-  const { isAuthenticated, handleLogout } = React.useContext(UserContext);
+  // const { isAuthenticated, handleLogout } = React.useContext(UserContext);
   const {
     setProjects,
     setProjectTasksWereRequested,
@@ -25,13 +25,13 @@ function NavBar() {
     setProjectTasksWereFetched(false);
   }
 
-  const LoginLogout = isAuthenticated ? (
-    <NavItem onClick={handleLogout}>Logout</NavItem>
-  ) : (
-    <NavItem>
-      <AuthDialog />
-    </NavItem>
-  );
+  // const LoginLogout = isAuthenticated ? (
+  //   <NavItem onClick={handleLogout}>Logout</NavItem>
+  // ) : (
+  //   <NavItem>
+  //     <AuthDialog />
+  //   </NavItem>
+  // );
 
   // const AddProject = (
   //   <NavItem>
@@ -95,7 +95,7 @@ function NavBar() {
   return (
     <FlexWrapper>
       <NavItem>{volumeOnSVG}</NavItem>
-      {LoginLogout}
+      {/* {LoginLogout} */}
       <NavItem>About</NavItem>
       {/* {AddProject}
       <ProjectDropdown selectFollowUp={handleSelectValue} /> */}
