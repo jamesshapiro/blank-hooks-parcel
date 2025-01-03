@@ -27,6 +27,7 @@
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "prettier": "^3.2.5"
   }
 }
